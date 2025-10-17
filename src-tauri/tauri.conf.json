@@ -15,12 +15,21 @@
         "title": "basic",
         "width": 800,
         "height": 600,
+        "minWidth": 300,
+        "minHeight": 200,
         "transparent": true,
-        "decorations": false
+        "decorations": false,
+        "resizable": true,
+        "maximized": false
       }
     ],
     "security": {
       "csp": null
+    }
+  },
+  "plugins": {
+    "window": {
+      "defaultWindowIcon": null
     }
   },
   "bundle": {
