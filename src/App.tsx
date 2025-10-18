@@ -7,12 +7,27 @@ function App() {
   const [text, setText] = useState("");
   const [fontColor, setFontColor] = useState("#FFFFFF");
   const [editorFontColor, setEditorFontColor] = useState("#FFFFFF");
-  const [bgColor, setBgColor] = useState("rgba(0,0,0,0.5)");
+  const [bgColor, setBgColor] = useState("rgba(0,0,0,0.1)");
   const [editorBgColor, setEditorBgColor] = useState("rgba(0,0,0,0.5)");
 
   const updateCSSVariable = (variable: string, value: string) => {
     document.documentElement.style.setProperty(variable, value);
   };
+
+  function hexToRgba(hex: string, alpha: number): string {
+    hex = hex.replace(/^#/, '');
+    let r = 0, g = 0, b = 0;
+    if (hex.length === 3) {
+      r = parseInt(hex[0] + hex[0], 16);
+      g = parseInt(hex[1] + hex[1], 16);
+      b = parseInt(hex[2] + hex[2], 16);
+    } else if (hex.length === 6) {
+      r = parseInt(hex.slice(0, 2), 16);
+      g = parseInt(hex.slice(2, 4), 16);
+      b = parseInt(hex.slice(4, 6), 16);
+    }
+    return `rgba(${r},${g},${b},${alpha})`;
+  }
 
   const handleFontColorChange = (color: string) => {
     setFontColor(color);
@@ -23,12 +38,14 @@ function App() {
     updateCSSVariable("--editor-font-color", color);
   };
   const handleBgColorChange = (color: string) => {
-    setBgColor(color);
-    updateCSSVariable("--bg-color", color);
+    const rgba = hexToRgba(color, 0.2);
+    setBgColor(rgba);
+    updateCSSVariable("--bg-color", rgba);
   };
   const handleEditorBgColorChange = (color: string) => {
-    setEditorBgColor(color);
-    updateCSSVariable("--editor-background-color", color);
+    const rgba = hexToRgba(color, 0.5);
+    setEditorBgColor(rgba);
+    updateCSSVariable("--editor-background-color", rgba);
   };
 
   return (
