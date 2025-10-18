@@ -66,6 +66,19 @@ function App() {
             className="typingarea"
             value={text}
             onChange={(e) => setText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Tab") {
+                e.preventDefault();
+                const textarea = e.target as HTMLTextAreaElement;
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                const newValue = text.substring(0, start) + "  " + text.substring(end);
+                setText(newValue);
+                setTimeout(() => {
+                  textarea.selectionStart = textarea.selectionEnd = start + 2;
+                }, 0);
+              }
+            }}
           />
         </div>
       </div>
