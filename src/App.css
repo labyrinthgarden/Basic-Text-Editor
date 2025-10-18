@@ -1,8 +1,15 @@
+@font-face {
+  font-family: 'Iosevka';
+  src: url('./assets/fonts/Iosevka-Regular.ttc') format('truetype-collection');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
-  font-family: 'Iosevka Nerd Font';
+  font-family: 'Iosevka';
   --font-color: #FFFFFF;
   --editor-font-color: #FFFFFF;
-  --bg-color: transparent;
+  --bg-color: rgba(0,0,0,0.2);
   --editor-background-color: rgba(0,0,0,0.5);
   --titlebar-height: 30px;
   --titlebar-bg: rgba(0,0,0,0.6);
@@ -102,7 +109,7 @@ html, body, #root {
     padding: 3px 7px;
     border:none;
     color: var(--font-color);
-    background-color: var(--editor-background-color);
+    background-color: rgba(0,0,0,0.2);
 }
 
 .dropdown-menu{
@@ -141,7 +148,8 @@ html, body, #root {
   flex: 1;
   min-height: 0;
   overflow: auto;
-  font-family: 'Iosevka Nerd Font';
+  border-radius: 0;
+  font-family: 'Iosevka';
   font-size: 20px;
   box-sizing: border-box;
   border: 1px solid #FFFFFF;

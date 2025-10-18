@@ -36,8 +36,6 @@ function Navbar({
     <nav className="navbar-container">
       <div style={{ display: 'flex' }}>
         <button className="navbar-button">File</button>
-        <button className="navbar-button">Edit</button>
-        <button className="navbar-button">View</button>
       </div>
       <div style={{ position: 'relative', display: 'inline-block' }} ref={menuRef}>
         <button className="navbar-button" onClick={toggleMenu}>...</button>
